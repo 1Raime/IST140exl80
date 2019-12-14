@@ -1,0 +1,503 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Project 5.ipynb",
+      "provenance": [],
+      "collapsed_sections": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/1Raime/IST140exl80/blob/master/Project_5.html\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "aacwJ5S70Fg0",
+        "colab_type": "text"
+      },
+      "source": [
+        "## Flixnet"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "mgI4JWGvcYqb",
+        "colab_type": "text"
+      },
+      "source": [
+        "\n",
+        "Created By:\n",
+        "*   Michael Johnson\n",
+        "*   Lyla Barakat\n",
+        "*   Evan Law\n",
+        "*   Rachel Wasserman\n",
+        "*   Yangming Zhang\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "5i4tTX5Kce7b",
+        "colab_type": "text"
+      },
+      "source": [
+        "### Project Description"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "j2SRXN8JciCC",
+        "colab_type": "text"
+      },
+      "source": [
+        "Our team created FLIXNET in order to provide users with an affordable and accessible streaming service. Unlike our competition, FLIXNET is dedicated in making sure our users can find what they are looking for in an effective and efficient manner. We have designed our database in a way in which our users can find any movie or TV show they are looking for and can narrow down their search options in a multitude of ways.  We began creating our database by choosing our 5 main entities (Moves, TV, Actors, DVDs, and Users) and revolved all of our attributes around these primary categories within the database. This allowed for us to create a entity-relationship diagram that provides us with a baseline for the components of our database.\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "mlDVhlXxhi-C",
+        "colab_type": "code",
+        "outputId": "ef4f58bd-3f35-4e76-b313-ec207c070d21",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 781
+        }
+      },
+      "source": [
+        "from IPython.display import HTML\n",
+        "# https://www.youtube.com/embed/xxxxxxxxxxxx\n",
+        "HTML('<iframe width=\"1280\" height=\"720\" src=\"https://www.youtube.com/embed/KBBFuJVQcCs\" frameborder=\"0\" allowfullscreen></iframe>')"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<iframe width=\"1280\" height=\"720\" src=\"https://www.youtube.com/embed/KBBFuJVQcCs\" frameborder=\"0\" allowfullscreen></iframe>"
+            ],
+            "text/plain": [
+              "<IPython.core.display.HTML object>"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 1
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "t6-Y4Xx_crf6",
+        "colab_type": "text"
+      },
+      "source": [
+        "#### ER Diagram"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "f4clSkG21yh_",
+        "colab_type": "text"
+      },
+      "source": [
+        "\n",
+        "\n",
+        "\n",
+        "\n",
+        "![alt text](https://cdn.discordapp.com/attachments/654380337186603018/655178987365990401/group1projectpart2_1.jpg)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "OzwSzMerctdL",
+        "colab_type": "text"
+      },
+      "source": [
+        "Describe your ER Diagram. \n",
+        "\n",
+        "Our ER Diagram is designed to show the realtionships between the different services our companie offers, as well as the relationships between the information within our databases (namely the movies, shows, and actors/actresses that act in them). Our Users table gives information about the users of our services and connects to the TV table (many users may all watch up to one TV show at a time), the DVD table (many users may each rent out up to 3 DVDs at a time), and the Movies table (many users may watch up to one Movie at a time). The Actors table gives information about the actors and actresses that act in the TV Shows and Movies and connects to the TV table (Many actors can act in many different TV shows, and TV shows can employ many actors), and Movies table (many actors can act in many different movies, and movies can hire many different actors). In this diagram the Keys are; In the Actor table primary is the actorName and foreigns are actorFirstMovie (based on movieTitle) and actorFirstShow (based on tvTitle), in the TV table the primary key is tvTitle, in the Movies table the primary key is movieTitle, in the Users table the primary key is userID, and in the DVDs table the primary key is dvdID and the foreign jey is dvdTitle (related to either tvTitle or movieTitle depending on the DVD)\n",
+        "\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "dgonvxYUdc7M",
+        "colab_type": "text"
+      },
+      "source": [
+        "We have created our database by gathering the top needed tables for our users. These include Movies, Actors, Users, Tv shows, and DVDs. Within each table we have provided the needed information that our users would need when searching for something to watch. We have put together well known movies in our table along with their moving rating, genre, length, and director. With our Tv table we provide information on how many seasons, genre, start year and the rating.\n",
+        "With selecting the data we did, we are able to show our users the most common questions they would have about the Movie or Tv show they are going to watch.\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "QMmyiEGXd1aV",
+        "colab_type": "text"
+      },
+      "source": [
+        "Create database and tables."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "O2ST2uJScdGM",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "import sqlite3\n",
+        "connectionToDatabase = sqlite3.connect('Flixnet') \n",
+        "cursor = connectionToDatabase.cursor()\n",
+        "cursor.execute('''drop table IF EXISTS Movies''')\n",
+        "connectionToDatabase.commit()\n",
+        "\n",
+        "cursor.execute('''create table Movies ( Movie_title text PRIMARY KEY, Movie_length int, Movie_genre text, Movie_rating text, Movie_director text)''')\n",
+        "connectionToDatabase.commit()\n",
+        "\n",
+        "cursor.execute('''drop table IF EXISTS Actors''')\n",
+        "connectionToDatabase.commit()\n",
+        "\n",
+        "cursor.execute('''create table Actors (Actor_name text PRIMARY KEY, Actor_FirstMovie text, Actor_Firstshow text, Actor_related_actors text)''')\n",
+        "connectionToDatabase.commit()\n",
+        "\n",
+        "cursor.execute('''drop table IF EXISTS Users''')\n",
+        "connectionToDatabase.commit()\n",
+        "\n",
+        "cursor.execute('''create table Users (User_ID int PRIMARY KEY, Profile_name text, User_reviews text, User_age int, User_StreamTime int)''')\n",
+        "connectionToDatabase.commit()\n",
+        "\n",
+        "cursor.execute('''drop table IF EXISTS TV''')\n",
+        "connectionToDatabase.commit()\n",
+        "\n",
+        "cursor.execute('''create table TV (TV_title text PRIMARY KEY, TV_num_seasons int, Start_year int, TV_genre text, TV_rating text)''')\n",
+        "connectionToDatabase.commit()\n",
+        "\n",
+        "cursor.execute('''drop table IF EXISTS DVD''')\n",
+        "connectionToDatabase.commit()\n",
+        "\n",
+        "cursor.execute('''create table DVD (DVD_id int PRIMARY KEY, DVD_title text, DVD_Idlocation int, DVD_StateID int, DVD_receipt int)''')\n",
+        "connectionToDatabase.commit()\n"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "sGaBFUS2d5he",
+        "colab_type": "text"
+      },
+      "source": [
+        "Insert data into tables."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "GqKVuozKd-Sz",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "cursor.execute('''insert into Movies values ('Avengers_Endgame', 182, 'Superhero', 'PG-13', 'Anthony_Russo');''')\n",
+        "connectionToDatabase.commit()\n",
+        "cursor.execute('''insert into Movies values ('Joker' , 122, 'Thriller', 'R', 'Todd_Phillips');''')\n",
+        "connectionToDatabase.commit()\n",
+        "cursor.execute('''insert into Movies values ('Get_Out', 104, 'Horror', 'R', 'Jordan_Peele');''')\n",
+        "connectionToDatabase.commit()\n",
+        "cursor.execute('''insert into Movies values ('The_Dark_Knight', 152, 'Superhero', 'PG-13', 'Christopher_Nolan');''')\n",
+        "connectionToDatabase.commit()\n",
+        "cursor.execute('''insert into Movies values ('Pulp_Fiction', 178, 'Comedy', 'R', 'Quentin_Tarantino');''')\n",
+        "connectionToDatabase.commit()\n",
+        "cursor.execute('''insert into Actors values ('Steve_Carell', 'Minions', 'The_Office', 'John_Krasinski');''')\n",
+        "connectionToDatabase.commit()\n",
+        "cursor.execute('''insert into Actors values ('John_Krasinski','A_Quiet_Place','The_Office', 'Rainn_Wilson');''')\n",
+        "connectionToDatabase.commit()\n",
+        "cursor.execute('''insert into Actors values ('Danny_DeVito','Matilda','Its_Always_Sunny','Michael_Keaton');''')\n",
+        "connectionToDatabase.commit()\n",
+        "cursor.execute('''insert into Actors values ('Michael_Keaton','Batman','Working_Stiffs','Christian_Bale');''')\n",
+        "connectionToDatabase.commit()\n",
+        "cursor.execute('''insert into Actors values ('Bryan_Cranston','Why_Him','Breaking_Bad','Aaron_Paul');''')\n",
+        "connectionToDatabase.commit()\n",
+        "cursor.execute('''insert into Users values (123,'this_is_not_fake',4,20,153);''')\n",
+        "connectionToDatabase.commit()\n",
+        "cursor.execute('''insert into Users values (124,'i_love_projects',5,18,90);''')\n",
+        "connectionToDatabase.commit()\n",
+        "cursor.execute('''insert into Users values (125,'thisisfun',5,35,264);''')\n",
+        "connectionToDatabase.commit()\n",
+        "cursor.execute('''insert into Users values (157,'hello_user',1,56,270);''')\n",
+        "connectionToDatabase.commit()\n",
+        "cursor.execute('''insert into Users values (160,'username1',5,21,300);''')\n",
+        "connectionToDatabase.commit()\n",
+        "cursor.execute('''insert into TV values ('Game_of_Thrones' , 8, 2011, 'Fantasy', 'TV_MA');''')\n",
+        "connectionToDatabase.commit()\n",
+        "cursor.execute('''insert into TV values ('The_Office' , 9, 2005, 'Comedy', 'TV_14');''')\n",
+        "connectionToDatabase.commit()\n",
+        "cursor.execute('''insert into TV values ('Stranger_Things' , 3, 2016, 'Horror', 'TV_14');''')\n",
+        "connectionToDatabase.commit()\n",
+        "cursor.execute('''insert into TV values ('Greys_Anatomy' , 16, 2005, 'Romance', 'TV_14');''')\n",
+        "connectionToDatabase.commit()\n",
+        "cursor.execute('''insert into TV values ('American_Horror_Story' , 9, 2011, 'Horror', 'TV_MA');''')\n",
+        "connectionToDatabase.commit()\n",
+        "cursor.execute('''insert into DVD values (70123 , 'Midway', 0246, 0987, 00067);''')\n",
+        "connectionToDatabase.commit()\n",
+        "cursor.execute('''insert into DVD values (40135 , 'Frozen', 3406, 1117, 03456);''')\n",
+        "connectionToDatabase.commit()\n",
+        "cursor.execute('''insert into DVD values (98133 , 'Zombie_Land', 8504, 8497, 01283);''')\n",
+        "connectionToDatabase.commit()\n",
+        "cursor.execute('''insert into DVD values (93097 , 'Terminator', 2604, 0499, 03566);''')\n",
+        "connectionToDatabase.commit()\n",
+        "cursor.execute('''insert into DVD values (51073 , 'Addams_Family', 0089, 0001, 12890);''')\n",
+        "connectionToDatabase.commit()"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "iMV4yhgJeaPT",
+        "colab_type": "text"
+      },
+      "source": [
+        "#### Checking my tables. "
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "MQ6cOHrjeeE7",
+        "colab_type": "code",
+        "outputId": "0dd89ad0-7f1e-484e-ccb5-2781426a6aaf",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "source": [
+        "cursor.execute('''select * from DVD''')\n",
+        "for row in cursor.fetchall():\n",
+        "  print (row)"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "(70123, 'Midway', 246, 987, 67)\n",
+            "(40135, 'Frozen', 3406, 1117, 3456)\n",
+            "(98133, 'Zombie_Land', 8504, 8497, 1283)\n",
+            "(93097, 'Terminator', 2604, 499, 3566)\n",
+            "(51073, 'Addams_Family', 89, 1, 12890)\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "C1xWUZmAee1k",
+        "colab_type": "code",
+        "outputId": "e2fc9f6a-9b3e-423f-de7b-654247ce6fa8",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "source": [
+        "cursor.execute('''select * from Actors''')\n",
+        "for row in cursor.fetchall():\n",
+        "  print (row)"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "('Steve_Carell', 'Minions', 'The_Office', 'John_Krasinski')\n",
+            "('John_Krasinski', 'A_Quiet_Place', 'The_Office', 'Rainn_Wilson')\n",
+            "('Danny_DeVito', 'Matilda', 'Its_Always_Sunny', 'Michael_Keaton')\n",
+            "('Michael_Keaton', 'Batman', 'Working_Stiffs', 'Christian_Bale')\n",
+            "('Bryan_Cranston', 'Why_Him', 'Breaking_Bad', 'Aaron_Paul')\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "LCOp1PgfeJ1t",
+        "colab_type": "text"
+      },
+      "source": [
+        "#### SQL Select Statements + Scenario"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "g4tnMV_OeH3b",
+        "colab_type": "text"
+      },
+      "source": [
+        "In this scenario, Mary is an average Flixnet user. Mary has just gotten home from a long day and would like to relax by watching some television with her family. She opens Flixnet, but is unsure of what she would like to watch. Mary knows that she is in the mood to watch a new movie, as opposed to starting a new show. She navigates her way to the “Movie” section of Flixnet. Mary is in the mood to watch a funny movie, so she browses the comedy genre. She finds a movie starring her favorite actor, but notices that Flixnet shows that it is rated R. Since Mary is with her family, she decides to not choose that movie. Now, Mary is in the mood to watch her favorite actor; therefore, she searches for his name on Flixnet and scrolls through all of the TV shows and movies available that he stars in. She finds a movie that she is interested in and plays it."
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "HgL_Ffv0eSw1",
+        "colab_type": "text"
+      },
+      "source": [
+        "Being able to search for 'R' rated movies, or any rating really, is a very important feature of any video hosting/streaming service. Searching/Sorting by rating is one of the most common ways to search up new and/or old shows/movies, and our database being able to accurately determine the different ratings and search between them is vital to our platforms success. The results did match up with what we expected as these three movies were the only three rated 'R'."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "1mwBniOveQ9V",
+        "colab_type": "code",
+        "outputId": "2b932e8d-aa7c-4519-b7df-18fafec37793",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "source": [
+        "cursor.execute('''select * from Movies WHERE \"Movie_rating\" = \"R\"''')\n",
+        "for row in cursor.fetchall():\n",
+        "  print (row)"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "('Joker', 122, 'Thriller', 'R', 'Todd_Phillips')\n",
+            "('Get_Out', 104, 'Horror', 'R', 'Jordan_Peele')\n",
+            "('Pulp_Fiction', 178, 'Comedy', 'R', 'Quentin_Tarantino')\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "p_0ytoj8eo9U",
+        "colab_type": "text"
+      },
+      "source": [
+        "Being able to determine which actors/actresses acted in a specific show/movie is a big part of how searches on our platform will operate and therefor it is very important that our database can inform the searcher on which actors/actresses worked on a particular show/movie and also show whether thay had worked on any other shows/movies. The results did match up with what we expected, showing which actors in our database worked on 'The Office' and also showed which other shows/movies they worked in."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "Jt6OsqZFeq0i",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "cursor.execute('''select * from Actors WHERE \"Actor_shows\" = \"The_Office\"''')\n",
+        "for row in cursor.fetchall():\n",
+        "  print (row)"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Z3HTV5aXep4T",
+        "colab_type": "text"
+      },
+      "source": [
+        "Grouping via release year is another feature of our platform that is reliant on our database being able to accurately determine and then group which shows and movies were released in any given year, this adds another way to discover new shows/movies or rediscover old ones which helps diversify our offerings for our customers. The results do appear to match out expectations by giving us the two TV shows that had their first season released in 2005."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "f3haLhB4evCa",
+        "colab_type": "code",
+        "outputId": "9943b7b6-5247-4c9b-c2c7-82376d0c6cd8",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "source": [
+        "cursor.execute('''select * from TV GROUP BY \"Start_year\" = \"2005\"''')\n",
+        "for row in cursor.fetchall():\n",
+        "  print (row)"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "('American_Horror_Story', 9, 2011, 'Horror', 'TV_MA')\n",
+            "('Greys_Anatomy', 16, 2005, 'Romance', 'TV_14')\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "iy_LhXZFuLHo",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 136
+        },
+        "outputId": "0aa4fb00-4f36-48bf-9318-e63db61881ed"
+      },
+      "source": [
+        "jupyter nbconvert Project_5.ipynb --to html --output Project_5.html"
+      ],
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "SyntaxError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;36m  File \u001b[0;32m\"<ipython-input-4-e59ab9847dd6>\"\u001b[0;36m, line \u001b[0;32m1\u001b[0m\n\u001b[0;31m    jupyter nbconvert Project_5.ipynb --to html --output Project_5.html\u001b[0m\n\u001b[0m                    ^\u001b[0m\n\u001b[0;31mSyntaxError\u001b[0m\u001b[0;31m:\u001b[0m invalid syntax\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
